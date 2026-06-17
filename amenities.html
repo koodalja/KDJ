@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="丕家가 준비한 독점적인 힐링 부대시설을 소개합니다. 전통 다실 청풍, 비대면 사계절 온수 풀, 히노끼 노천탕, 그리고 돌담 정원.">
+    <title>부대시설 | 丕家 | THE GRAND PRIVATE HOUSE</title>
+    <!-- Icon Font Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <script src="main.js" defer></script>
+    <script src="lang-switch.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="IMG/logo.jpg" alt="丕家 Logo" class="logo-img">S
+                THE GRAND PRIVATE HOUSE <span>丕家</span>
+            </a>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                <li><a href="amenities.html" class="active" data-lang-key="nav_amenities">부대시설</a></li>
+                <li><a href="gallery.html" data-lang-key="nav_gallery">갤러리</a></li>
+                <li><a href="contact.html" data-lang-key="nav_contact">예약문의</a></li>
+                <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+            </ul>
+            <div class="nav-widgets">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <span>|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="btn-signup" id="signup-trigger" data-lang-key="btn_signup">회원가입</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Page Header (Amenities Hero) -->
+    <section class="page-header"
+        style="background-image: linear-gradient(to bottom, rgba(11, 12, 14, 0.4), rgba(11, 12, 14, 0.95)), url('IMG/hero_villa.png');">
+        <div class="page-header-content">
+            <span class="section-tag">High-end Facilities</span>
+            <h1>쉼을 완성하는 독점 공간</h1>
+            <p>丕家의 부대시설은 대중을 위한 공간이 아닙니다. 철저히 예약된 1팀의 소유자만을 위한 침묵의 영역입니다.</p>
+        </div>
+    </section>
+
+    <!-- Introductory Banner -->
+    <section class="amenity-intro reveal">
+        <span class="section-tag">Pure Serenity</span>
+        <h2>휴식의 세부 요소</h2>
+        <p>인간의 감각이 가장 평온한 상태에 도달할 수 있도록 빛과 바람, 물과 소리의 주파수를 섬세하게 튜닝하였습니다. 오직 자연의 순수한 파동만을 공간에 남깁니다.</p>
+    </section>
+
+    <!-- Amenities Grid Content -->
+    <section class="amenity-grid">
+
+        <!-- Amenity 1: Cheongpung Tea Room -->
+        <div class="amenity-block reveal-left" id="amenity-item-tea">
+            <div class="amenity-img-box">
+                <img src="IMG/amenity_tea.png" alt="전통 다실 - 청풍">
+            </div>
+            <div class="amenity-text-box">
+                <h3>전통 다실 '청풍(淸風)' <span>Traditional Meditation Tea Room</span></h3>
+                <p>
+                    바람(風)이 맑게(淸) 머무는 다실 '청풍'입니다. 제주산 가옥의 정취를 가득 담은 삼나무 테이블과 최고급 제주 다기가 준비되어 있습니다.
+                    아침 서리가 걷히는 고요한 정원을 바라보며 싱그러운 찻잎을 우려내며 잡념을 씻어내고 온전한 자아를 마주하는 시간을 선물합니다.
+                </p>
+                <div class="amenity-details">
+                    <div class="amenity-detail-item">
+                        <h4>운영방식</h4>
+                        <p>비대면 사전예약제 (1회 90분 독점 대여)</p>
+                    </div>
+                    <div class="amenity-detail-item">
+                        <h4>무료 제공</h4>
+                        <p>우전 유기농 설록차, 감귤 정과 웰컴 푸드 세트</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Amenity 2: Private Hot Pool -->
+        <div class="amenity-block reveal-right" id="amenity-item-pool">
+            <div class="amenity-img-box">
+                <img src="IMG/amenity_pool.png" alt="비대면 사계절 온수 풀">
+            </div>
+            <div class="amenity-text-box">
+                <h3>비대면 사계절 온수 풀 <span>Private Hot Infinity Pool</span></h3>
+                <p>
+                    제주의 청량한 에메랄드빛 해안선과 유기적으로 이어지는 丕 Suite 투숙객 전용의 개별 온수 인피니티 풀입니다.
+                    외부 시야를 완전히 차단해주는 높고 두터운 제주 천연 현무암 돌담에 안겨, 오직 밤하늘의 수많은 은하수와 온화한 증기 속에서 사랑하는 사람과 밀도 높은 쉼을 영위할 수 있습니다.
+                </p>
+                <div class="amenity-details">
+                    <div class="amenity-detail-item">
+                        <h4>수온 관리</h4>
+                        <p>연중 상시 32°C ~ 36°C 친환경 열원 순환 유지</p>
+                    </div>
+                    <div class="amenity-detail-item">
+                        <h4>이용 요금</h4>
+                        <p>丕 Suite 투숙객 무료 (사전 온수 세팅 서비스 포함)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Amenity 3: Hinoki Spa -->
+        <div class="amenity-block reveal-left" id="amenity-item-spa">
+            <div class="amenity-img-box">
+                <img src="IMG/room_jung.png" alt="히노끼 노천탕">
+            </div>
+            <div class="amenity-text-box">
+                <h3>히노끼 노천 온천스파 <span>Aroma Hinoki Outdoor Spa</span></h3>
+                <p>
+                    수령 100년이 넘는 엄선된 편백나무 원목으로 직접 수제 제작한 친환경 웰니스 야외 노천탕입니다.
+                    대나무 숲이 바람에 흔들리는 댓잎 소리를 배경 삼아, 편백나무 고유의 풍성한 피톤치드 피톤액과 천연 미네랄 온천수가 어우러져 투숙객의 혈액순환과 세포 피로를 탁월하게 완화합니다.
+                </p>
+                <div class="amenity-details">
+                    <div class="amenity-detail-item">
+                        <h4>운영시간</h4>
+                        <p>15:00 - 23:00 (체크인 시 스파 전용 솔트 제공)</p>
+                    </div>
+                    <div class="amenity-detail-item">
+                        <h4>스파 어메니티</h4>
+                        <p>유기농 사쿠라/히노끼 인센스 스틱, 핸드메이드 바솔트 솔트</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Amenity 4: Basalt Stone Garden -->
+        <div class="amenity-block reveal-right" id="amenity-item-garden">
+            <div class="amenity-img-box">
+                <img src="IMG/hero_villa.png" alt="프라이빗 돌담 정원">
+            </div>
+            <div class="amenity-text-box">
+                <h3>프라이빗 돌담 정원 <span>Private Basalt Stone Garden</span></h3>
+                <p>
+                    바람의 고장 제주의 자연경관을 모티프로 전통 석조 예술가의 정성으로 빚어낸 이끼 낀 개별 돌담 산책로입니다.
+                    외부의 불필요한 시선과 인공적인 소음을 물리적으로 철저하게 차폐(Acoustic Barrier)하도록 정밀하게 설계되어 있어, 자연 속에 그대로 묻히는 오가닉 슬로우 도보 사색을
+                    마음껏 향유할 수 있습니다.
+                </p>
+                <div class="amenity-details">
+                    <div class="amenity-detail-item">
+                        <h4>조경 구성</h4>
+                        <p>제주 자생 돌이끼, 백목련, 토종 팽나무, 은빛 억새 군락</p>
+                    </div>
+                    <div class="amenity-detail-item">
+                        <h4>설계 특징</h4>
+                        <p>시야 차단을 극대화한 이중 레이어드 곡선형 돌담 시공</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Call to action -->
+    <section class="reveal"
+        style="padding: 100px 8%; text-align: center; background-color: var(--bg-secondary); border-top: 1px solid var(--border-light);">
+        <h2
+            style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 25px;">
+            지극히 개인적인 공간의 감동</h2>
+        <p
+            style="font-size: 1.05rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 45px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 2;">
+            당신이 머무는 시간 동안 丕家의 모든 가치들은 오직 한 명의 감각을 일깨우기 위해 묵묵히 제자리를 지킵니다.</p>
+        <a href="booking.html" class="btn btn-fill" id="btn-amenities-booking">실시간 예약 시스템</a>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">THE GRAND PRIVATE HOUSE <span>丕家</span></div>
+                <p class="footer-desc">바람이 머무는 곳, 제주의 고요 속에서 오직 당신만을 위한 완전한 안식을 선사합니다.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                    <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                    <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                    <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>CONTACT</h4>
+                <p>주소: 제주특별자치도 서귀포시 중문 88</p>
+                <p>전화: 064-000-0000</p>
+                <p>이메일: reservation@piga.co.kr</p>
+            </div>
+
+            <div class="footer-sns">
+                <h4>FOLLOW US</h4>
+                <div class="sns-icons">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang-key="footer_copyright">&copy; 2026 丕家. THE GRAND PRIVATE HOUSE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="signup-close">&times;</button>
+            <h3 data-lang-key="modal_signup_title">丕家 멤버십 가입</h3>
+            <p class="modal-subtitle" data-lang-key="modal_signup_subtitle">비대면 명품 서비스와 프라이빗 특권을 소유하세요.</p>
+            <form class="modal-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name" data-lang-key="form_name">이름</label>
+                    <input type="text" id="signup-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email" data-lang-key="form_email">이메일 주소</label>
+                    <input type="email" id="signup-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone" data-lang-key="form_phone">휴대폰 번호</label>
+                    <input type="tel" id="signup-phone" class="form-control" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password" data-lang-key="form_password">비밀번호</label>
+                    <input type="password" id="signup-password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password-confirm" data-lang-key="form_password_confirm">비밀번호 확인</label>
+                    <input type="password" id="signup-password-confirm" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-fill"
+                    style="width: 100%; border: 1px solid var(--accent-gold); margin-top: 10px;"
+                    data-lang-key="btn_submit_signup">가입하기</button>
+            </form>
+            <p class="modal-footer-text" data-lang-key="modal_signup_footer">이미 계정이 있으신가요? <a href="#">로그인</a></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="丕家의 객실을 소개합니다. 가장 웅장한 침묵의 丕 Suite와 동양적 사색을 제공하는 靜 Suite까지, 당신만의 안식처가 될 독채 빌라입니다.">
+    <title>객실소개 | 丕家 | THE GRAND PRIVATE HOUSE</title>
+    <!-- Icon Font Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <script src="main.js" defer></script>
+    <script src="lang-switch.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="IMG/logo.jpg" alt="丕家 Logo" class="logo-img">
+                THE GRAND PRIVATE HOUSE <span>丕家</span>
+            </a>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                <li><a href="rooms.html" class="active" data-lang-key="nav_rooms">객실소개</a></li>
+                <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                <li><a href="gallery.html" data-lang-key="nav_gallery">갤러리</a></li>
+                <li><a href="contact.html" data-lang-key="nav_contact">예약문의</a></li>
+                <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+            </ul>
+            <div class="nav-widgets">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <span>|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="btn-signup" id="signup-trigger" data-lang-key="btn_signup">회원가입</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Page Header (Rooms Hero) -->
+    <section class="page-header"
+        style="background-image: linear-gradient(to bottom, rgba(11, 12, 14, 0.4), rgba(11, 12, 14, 0.95)), url('IMG/hero_villa.png');">
+        <div class="page-header-content">
+            <span class="section-tag">Our Suites</span>
+            <h1>웅장한 침묵을 품은 객실</h1>
+            <p>丕家는 타인과의 동선 교차를 완벽히 차단하여 오직 한 팀만이 독립된 대자연과 고택의 향취를 소유할 수 있도록 설계되었습니다.</p>
+        </div>
+    </section>
+
+    <!-- Room Filter Bar -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" id="btn-filter-all">전체 객실</button>
+        <button class="filter-btn" data-filter="pool" id="btn-filter-pool">프라이빗 풀빌라</button>
+        <button class="filter-btn" data-filter="spa" id="btn-filter-spa">히노끼 노천스파</button>
+    </div>
+
+    <!-- Rooms Detail Section -->
+    <section class="room-detail-container">
+
+        <!-- Room 1: Pi Suite -->
+        <div class="room-detail-item reveal" data-category="pool" id="room-item-pi">
+            <div class="room-gallery">
+                <img src="IMG/room_pi.png" alt="丕 Suite - Signature Penthouse Villa">
+            </div>
+            <div class="room-info-content">
+                <span class="room-type">Signature Penthouse</span>
+                <h2 class="room-title">丕 (Pi) Suite</h2>
+                <p class="room-desc">
+                    丕(Pi)는 '웅장하고 위대함'을 뜻합니다. 丕家에서 가장 넓은 독립 대지를 사용하는 최상위 스위트 객실로, 사계절 온수 인피니티 풀이 제주의 돌담 정원과 하나의 지평선으로
+                    연결됩니다. 외부 세계로부터 완벽히 격리된 비대면 휴식의 극치를 수치와 미학으로 경험하십시오.
+                </p>
+
+                <div class="room-spec-list">
+                    <div class="room-spec-item">
+                        <span class="spec-label">객실 타입 (Type)</span>
+                        <span class="spec-val">시그니처 독채 풀빌라 (복층)</span>
+                    </div>
+                    <div class="room-spec-item">
+                        <span class="spec-label">면적 (Size)</span>
+                        <span class="spec-val">215㎡ (약 65평)</span>
+                    </div>
+                    <div class="room-spec-item">
+                        <span class="spec-label">인원 (Capacity)</span>
+                        <span class="spec-val">기준 2인 / 최대 4인</span>
+                    </div>
+                    <div class="room-spec-item">
+                        <span class="spec-label">시그니처 시설 (Key Facility)</span>
+                        <span class="spec-val">온수 인피니티 풀, 개별 정원</span>
+                    </div>
+                </div>
+
+                <div class="room-price-book">
+                    <div class="room-price-val">
+                        <span class="price-label">1박 기준 요금</span>
+                        <span class="price-num">₩ 980,000</span>
+                    </div>
+                    <a href="booking.html?room=pi" class="btn btn-fill" id="btn-book-pi">객실 예약하기</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room 2: Jung Suite -->
+        <div class="room-detail-item reveal" data-category="spa" id="room-item-jung">
+            <div class="room-gallery">
+                <img src="IMG/room_jung.png" alt="靜 Suite - Hanok-fusion Villa">
+            </div>
+            <div class="room-info-content">
+                <span class="room-type">Tradition & Silence</span>
+                <h2 class="room-title">靜 (Jung) Suite</h2>
+                <p class="room-desc">
+                    靜(Jung)은 '고요하고 아늑함'을 품고 있습니다. 전통 한국 건축의 선율과 미학적인 현대 인테리어가 기품 있게 어우러진 공간입니다. 침대에 누워 바라보는 프라이빗 대나무
+                    정원과, 지친 일상을 씻어낼 야외 천연 히노끼 노천탕, 차 한 잔의 여유를 담는 별도의 다실 공간을 소유할 수 있습니다.
+                </p>
+
+                <div class="room-spec-list">
+                    <div class="room-spec-item">
+                        <span class="spec-label">객실 타입 (Type)</span>
+                        <span class="spec-val">전통 퓨전 독채 빌라 (단층)</span>
+                    </div>
+                    <div class="room-spec-item">
+                        <span class="spec-label">면적 (Size)</span>
+                        <span class="spec-val">148㎡ (약 45평)</span>
+                    </div>
+                    <div class="room-spec-item">
+                        <span class="spec-label">인원 (Capacity)</span>
+                        <span class="spec-val">기준 2인 / 최대 2인</span>
+                    </div>
+                    <div class="room-spec-item">
+                        <span class="spec-label">시그니처 시설 (Key Facility)</span>
+                        <span class="spec-val">히노끼 노천탕, 개별 전통 다실</span>
+                    </div>
+                </div>
+
+                <div class="room-price-book">
+                    <div class="room-price-val">
+                        <span class="price-label">1박 기준 요금</span>
+                        <span class="price-num">₩ 750,000</span>
+                    </div>
+                    <a href="booking.html?room=jung" class="btn btn-fill" id="btn-book-jung">객실 예약하기</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Image Filtering Logic script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const roomItems = document.querySelectorAll('.room-detail-item');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all buttons
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    // Add active to current
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    roomItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        if (filterValue === 'all' || category === filterValue) {
+                            item.style.display = 'grid';
+                            // Trigger opacity anim
+                            setTimeout(() => {
+                                item.classList.add('active');
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                            item.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">THE GRAND PRIVATE HOUSE <span>丕家</span></div>
+                <p class="footer-desc">바람이 머무는 곳, 제주의 고요 속에서 오직 당신만을 위한 완전한 안식을 선사합니다.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                    <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                    <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                    <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>CONTACT</h4>
+                <p>주소: 제주특별자치도 서귀포시 중문 88</p>
+                <p>전화: 064-000-0000</p>
+                <p>이메일: reservation@piga.co.kr</p>
+            </div>
+
+            <div class="footer-sns">
+                <h4>FOLLOW US</h4>
+                <div class="sns-icons">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang-key="footer_copyright">&copy; 2026 丕家. THE GRAND PRIVATE HOUSE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="signup-close">&times;</button>
+            <h3 data-lang-key="modal_signup_title">丕家 멤버십 가입</h3>
+            <p class="modal-subtitle" data-lang-key="modal_signup_subtitle">비대면 명품 서비스와 프라이빗 특권을 소유하세요.</p>
+            <form class="modal-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name" data-lang-key="form_name">이름</label>
+                    <input type="text" id="signup-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email" data-lang-key="form_email">이메일 주소</label>
+                    <input type="email" id="signup-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone" data-lang-key="form_phone">휴대폰 번호</label>
+                    <input type="tel" id="signup-phone" class="form-control" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password" data-lang-key="form_password">비밀번호</label>
+                    <input type="password" id="signup-password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password-confirm" data-lang-key="form_password_confirm">비밀번호 확인</label>
+                    <input type="password" id="signup-password-confirm" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-fill"
+                    style="width: 100%; border: 1px solid var(--accent-gold); margin-top: 10px;"
+                    data-lang-key="btn_submit_signup">가입하기</button>
+            </form>
+            <p class="modal-footer-text" data-lang-key="modal_signup_footer">이미 계정이 있으신가요? <a href="#">로그인</a></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

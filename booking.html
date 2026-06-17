@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="丕家 (THE GRAND PRIVATE HOUSE) 실시간 예약 서비스. 날짜와 객실을 선택하여 비대면 안식처를 예약하십시오.">
+    <title>실시간예약 | 丕家 | THE GRAND PRIVATE HOUSE</title>
+    <!-- Icon Font Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <script src="main.js" defer></script>
+    <script src="lang-switch.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="IMG/logo.jpg" alt="丕家 Logo" class="logo-img">
+                THE GRAND PRIVATE HOUSE <span>丕家</span>
+            </a>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                <li><a href="gallery.html" data-lang-key="nav_gallery">갤러리</a></li>
+                <li><a href="contact.html" data-lang-key="nav_contact">예약문의</a></li>
+                <li><a href="booking.html" class="active" data-lang-key="nav_booking">실시간예약</a></li>
+            </ul>
+            <div class="nav-widgets">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <span>|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="btn-signup" id="signup-trigger" data-lang-key="btn_signup">회원가입</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Page Header (Booking Hero) -->
+    <section class="page-header"
+        style="background-image: linear-gradient(to bottom, rgba(11, 12, 14, 0.4), rgba(11, 12, 14, 0.95)), url('IMG/hero_villa.png');">
+        <div class="page-header-content">
+            <span class="section-tag">Booking Engine</span>
+            <h1>실시간 예약 시스템</h1>
+            <p>당신의 고요한 여정을 설계하십시오. 단 하루 네 팀만을 위해 닫히는 비대면 문이 준비됩니다.</p>
+        </div>
+    </section>
+
+    <!-- Booking Main Content -->
+    <section class="booking-section">
+
+        <!-- Booking Steps Bar -->
+        <div class="booking-steps">
+            <div class="step-item active" id="step-tab-1">
+                <div class="step-num">01</div>
+                <div class="step-label">일정 & 인원</div>
+            </div>
+            <div class="step-item" id="step-tab-2">
+                <div class="step-num">02</div>
+                <div class="step-label">객실 & 옵션</div>
+            </div>
+            <div class="step-item" id="step-tab-3">
+                <div class="step-num">03</div>
+                <div class="step-label">예약자 정보</div>
+            </div>
+            <div class="step-item" id="step-tab-4">
+                <div class="step-num">04</div>
+                <div class="step-label">예약 완료</div>
+            </div>
+        </div>
+
+        <div class="booking-wrapper" id="booking-wrapper">
+
+            <!-- Left Side: Interactive Wizard Form -->
+            <div class="booking-panel" id="booking-left-panel">
+
+                <!-- STEP 1: DATES & GUESTS -->
+                <div class="booking-form-step active" id="step-content-1">
+                    <h2>01. 일정 및 인원 선택</h2>
+
+                    <div class="booking-form-grid">
+                        <div class="form-group">
+                            <label for="checkin-date">체크인 날짜 (Check-in)</label>
+                            <input type="date" id="checkin-date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout-date">체크아웃 날짜 (Check-out)</label>
+                            <input type="date" id="checkout-date" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="booking-form-grid">
+                        <div class="form-group">
+                            <label for="guests-adults">성인 인원 (Adults - 만 19세 이상)</label>
+                            <select id="guests-adults" class="form-control">
+                                <option value="1">성인 1명</option>
+                                <option value="2" selected>성인 2명</option>
+                                <option value="3">성인 3명</option>
+                                <option value="4">성인 4명</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests-children">아동 인원 (Children - 만 18세 이하)</label>
+                            <select id="guests-children" class="form-control">
+                                <option value="0" selected>아동 없음</option>
+                                <option value="1">아동 1명</option>
+                                <option value="2">아동 2명</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="step-buttons">
+                        <div></div>
+                        <button type="button" class="btn btn-fill" id="btn-next-1">객실 조회하기 <i
+                                class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: ROOM & OPTIONAL SERVICES -->
+                <div class="booking-form-step" id="step-content-2">
+                    <h2>02. 객실 및 추가 옵션 선택</h2>
+
+                    <h3
+                        style="font-size: 1rem; color: var(--accent-gold); letter-spacing: 0.1em; margin-bottom: 20px; font-weight: 400;">
+                        객실 선택 (Room Selection)</h3>
+
+                    <div class="booking-rooms-list">
+                        <!-- Room Pi Card -->
+                        <div class="booking-room-card" id="room-card-pi" data-room-id="pi" data-price="980000"
+                            data-room-name="丕 (Pi) Suite">
+                            <img src="IMG/room_pi.png" alt="Pi Suite" class="booking-room-img">
+                            <div class="booking-room-details">
+                                <div class="booking-room-header">
+                                    <div>
+                                        <h4 class="booking-room-name">丕 (Pi) Suite</h4>
+                                        <p class="booking-room-desc">독채 복층 풀빌라 | 사계절 온수 풀 & 프라이빗 돌담 정원</p>
+                                    </div>
+                                    <span class="booking-room-price">₩980,000 / 박</span>
+                                </div>
+                                <div class="booking-room-footer">
+                                    <span>기준 2인 / 최대 4인 | 215㎡ (65평)</span>
+                                    <span class="select-indicator">선택하기</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Room Jung Card -->
+                        <div class="booking-room-card" id="room-card-jung" data-room-id="jung" data-price="750000"
+                            data-room-name="靜 (Jung) Suite">
+                            <img src="IMG/room_jung.png" alt="Jung Suite" class="booking-room-img">
+                            <div class="booking-room-details">
+                                <div class="booking-room-header">
+                                    <div>
+                                        <h4 class="booking-room-name">靜 (Jung) Suite</h4>
+                                        <p class="booking-room-desc">독채 단층 전통 빌라 | 히노끼 야외 노천탕 & 대나무 다실</p>
+                                    </div>
+                                    <span class="booking-room-price">₩750,000 / 박</span>
+                                </div>
+                                <div class="booking-room-footer">
+                                    <span>기준 2인 / 최대 2인 | 148㎡ (45평)</span>
+                                    <span class="select-indicator">선택하기</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3
+                        style="font-size: 1rem; color: var(--accent-gold); letter-spacing: 0.1em; margin-bottom: 20px; font-weight: 400;">
+                        추가 옵션 패키지 (Optional Packages)</h3>
+
+                    <div class="addons-list">
+                        <!-- Addon 1 -->
+                        <div class="addon-item" id="addon-tea" data-addon-id="tea" data-price="50000"
+                            data-name="1:1 제주 전통 다도 마스터 클래스">
+                            <div class="addon-left">
+                                <div class="addon-checkbox"></div>
+                                <div>
+                                    <div class="addon-label">1:1 제주 전통 다도 마스터 클래스</div>
+                                    <div class="addon-desc">전문 티 마스터가 안내하는 다실 '청풍'에서의 전통 차 내림 학습 (90분)</div>
+                                </div>
+                            </div>
+                            <span class="addon-price">₩50,000</span>
+                        </div>
+
+                        <!-- Addon 2 -->
+                        <div class="addon-item" id="addon-dinner" data-addon-id="dinner" data-price="250000"
+                            data-name="프리미엄 웰니스 디너 2인 코스">
+                            <div class="addon-left">
+                                <div class="addon-checkbox"></div>
+                                <div>
+                                    <div class="addon-label">프리미엄 웰니스 디너 2인 코스</div>
+                                    <div class="addon-desc">제주 청정 해산물과 친환경 유기농 식재료로 조리된 인룸 다이닝 코스식</div>
+                                </div>
+                            </div>
+                            <span class="addon-price">₩250,000</span>
+                        </div>
+
+                        <!-- Addon 3 -->
+                        <div class="addon-item" id="addon-pickup" data-addon-id="pickup" data-price="100000"
+                            data-name="제주 공항 왕복 의전 픽업 서비스">
+                            <div class="addon-left">
+                                <div class="addon-checkbox"></div>
+                                <div>
+                                    <div class="addon-label">제주 공항 왕복 의전 픽업 서비스</div>
+                                    <div class="addon-desc">리조트 전용 최고급 럭셔리 세단을 활용한 공항 ↔ 빌라 프라이빗 도어 에스코트</div>
+                                </div>
+                            </div>
+                            <span class="addon-price">₩100,000</span>
+                        </div>
+                    </div>
+
+                    <div class="step-buttons">
+                        <button type="button" class="btn" id="btn-prev-2"><i class="fa-solid fa-arrow-left"></i> 이전
+                            단계</button>
+                        <button type="button" class="btn btn-fill" id="btn-next-2">고객 정보 입력 <i
+                                class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: CUSTOMER CONTACT DETAILS -->
+                <div class="booking-form-step" id="step-content-3">
+                    <h2>03. 예약자 정보 입력</h2>
+
+                    <div class="booking-form-grid">
+                        <div class="form-group">
+                            <label for="user-name">예약자 성함 (Full Name)</label>
+                            <input type="text" id="user-name" class="form-control" placeholder="성함을 입력하세요." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-phone">연락처 (Phone Number)</label>
+                            <input type="tel" id="user-phone" class="form-control" placeholder="010-0000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="booking-form-grid">
+                        <div class="form-group">
+                            <label for="user-email">이메일 주소 (Email Address)</label>
+                            <input type="email" id="user-email" class="form-control" placeholder="name@example.com"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-requests">기타 요청사항 (Special Requests)</label>
+                            <input type="text" id="user-requests" class="form-control" placeholder="알레르기, 예상 입실 시간 등">
+                        </div>
+                    </div>
+
+                    <!-- PG Payment options selection -->
+                    <div style="border-top: 1px solid var(--border-light); padding-top: 30px; margin-top: 30px;">
+                        <h3
+                            style="font-size: 0.95rem; color: var(--text-primary); letter-spacing: 0.05em; margin-bottom: 15px; font-weight: 500;">
+                            결제 수단 선택</h3>
+                        <div class="pg-options">
+                            <div class="pg-option selected" data-method="card">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <span>신용카드</span>
+                            </div>
+                            <div class="pg-option" data-method="kakaopay">
+                                <i class="fa-solid fa-wallet"></i>
+                                <span>카카오페이</span>
+                            </div>
+                            <div class="pg-option" data-method="tosspay">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                                <span>토스페이</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="border-top: 1px solid var(--border-light); padding-top: 30px; margin-top: 30px;">
+                        <h3
+                            style="font-size: 0.95rem; color: var(--text-primary); letter-spacing: 0.05em; margin-bottom: 15px; font-weight: 500;">
+                            예약 관련 개인정보 취급 및 약관 동의</h3>
+                        <div class="addon-item" id="addon-terms" style="padding: 12px 20px;">
+                            <div class="addon-left">
+                                <div class="addon-checkbox"></div>
+                                <div>
+                                    <div class="addon-label" style="font-size: 0.85rem;">[필수] 예약 보증금 결제 및 위약금 환불 약관 동의
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-buttons">
+                        <button type="button" class="btn" id="btn-prev-3"><i class="fa-solid fa-arrow-left"></i> 이전
+                            단계</button>
+                        <button type="button" class="btn btn-fill" id="btn-submit">예약 확정 및 결제하기 <i
+                                class="fa-solid fa-credit-card"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Side: Live Costs Summary -->
+            <div class="summary-panel" id="booking-right-panel">
+                <h3>예약 요약 내역</h3>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>체크인</span>
+                        <span id="summary-checkin">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>체크아웃</span>
+                        <span id="summary-checkout">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>숙박 일수</span>
+                        <span id="summary-nights">0박</span>
+                    </div>
+                    <div class="summary-row"
+                        style="border-top: 1px solid var(--border-light); padding-top: 15px; margin-top: 5px;">
+                        <span>선택 객실</span>
+                        <span id="summary-room" style="font-weight: 500; color: var(--text-primary);">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>객실 기본가</span>
+                        <span id="summary-room-price">₩ 0</span>
+                    </div>
+                    <div class="summary-row"
+                        style="border-top: 1px solid var(--border-light); padding-top: 15px; margin-top: 5px;">
+                        <span>추가 옵션 총액</span>
+                        <span id="summary-addons-price">₩ 0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>부가가치세 (10%)</span>
+                        <span id="summary-vat">₩ 0</span>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>최종 결제 금액</span>
+                        <span id="summary-total">₩ 0</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- STEP 4: RESERVATION RECEIPT TICKET (Hidden initially) -->
+        <div class="ticket-wrapper" id="booking-ticket-panel" style="display: none;">
+            <div class="ticket-header">
+                <i class="fa-solid fa-circle-check ticket-success-icon"></i>
+                <div class="ticket-title">RESERVATION CONFIRMED</div>
+                <div
+                    style="font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 0.2em; text-transform: uppercase;">
+                    귀하의 프라이빗 여정이 확정되었습니다.</div>
+            </div>
+
+            <div class="ticket-grid">
+                <div class="ticket-item">
+                    <span class="ticket-label">예약 번호</span>
+                    <span class="ticket-val" id="ticket-id"
+                        style="font-family: var(--font-serif); font-weight: bold; color: var(--accent-gold);"></span>
+                </div>
+                <div class="ticket-item">
+                    <span class="ticket-label">예약자 성함</span>
+                    <span class="ticket-val" id="ticket-user-name"></span>
+                </div>
+                <div class="ticket-item">
+                    <span class="ticket-label">선택 객실</span>
+                    <span class="ticket-val" id="ticket-room-name" style="font-weight: 500;"></span>
+                </div>
+                <div class="ticket-item">
+                    <span class="ticket-label">투숙 기간</span>
+                    <span class="ticket-val" id="ticket-stay-dates"></span>
+                </div>
+                <div class="ticket-item">
+                    <span class="ticket-label">투숙 인원</span>
+                    <span class="ticket-val" id="ticket-guests"></span>
+                </div>
+                <div class="ticket-item">
+                    <span class="ticket-label">포함 옵션</span>
+                    <span class="ticket-val" id="ticket-addons"
+                        style="font-size: 0.85rem; color: var(--text-secondary);"></span>
+                </div>
+            </div>
+
+            <div class="ticket-footer">
+                <div class="ticket-total">
+                    최종 결제 총액 (부가가치세 포함)
+                    <span id="ticket-total-price"></span>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">
+                    * 丕家는 비대면 시크릿 리조트입니다. 입실 당일 오전, 모바일 앱 또는 SMS로 객실 핀코드(비밀번호) 및 개별 차량 진입로 정보가 일회용 시크릿 메시지로 자동 발송됩니다.
+                </p>
+                <a href="index.html" class="btn" style="padding: 12px 30px;">메인 화면으로</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Booking System Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // State
+            const state = {
+                checkin: '',
+                checkout: '',
+                nights: 0,
+                adults: 2,
+                children: 0,
+                selectedRoom: null, // { id, name, pricePerNight }
+                selectedAddons: [], // array of { id, name, price }
+                userName: '',
+                userPhone: '',
+                userEmail: '',
+                userRequests: '',
+                termsApproved: false
+            };
+
+            // DOM Elements
+            const checkinInput = document.getElementById('checkin-date');
+            const checkoutInput = document.getElementById('checkout-date');
+            const adultsSelect = document.getElementById('guests-adults');
+            const childrenSelect = document.getElementById('guests-children');
+            const roomCards = document.querySelectorAll('.booking-room-card');
+            const addonItems = document.querySelectorAll('.addon-item[data-addon-id]');
+            const termsItem = document.getElementById('addon-terms');
+
+            const summaryCheckin = document.getElementById('summary-checkin');
+            const summaryCheckout = document.getElementById('summary-checkout');
+            const summaryNights = document.getElementById('summary-nights');
+            const summaryRoom = document.getElementById('summary-room');
+            const summaryRoomPrice = document.getElementById('summary-room-price');
+            const summaryAddonsPrice = document.getElementById('summary-addons-price');
+            const summaryVat = document.getElementById('summary-vat');
+            const summaryTotal = document.getElementById('summary-total');
+
+            // Tabs and Steps
+            const stepTabs = [
+                document.getElementById('step-tab-1'),
+                document.getElementById('step-tab-2'),
+                document.getElementById('step-tab-3'),
+                document.getElementById('step-tab-4')
+            ];
+            const stepContents = [
+                document.getElementById('step-content-1'),
+                document.getElementById('step-content-2'),
+                document.getElementById('step-content-3')
+            ];
+
+            // Buttons
+            const btnNext1 = document.getElementById('btn-next-1');
+            const btnNext2 = document.getElementById('btn-next-2');
+            const btnPrev2 = document.getElementById('btn-prev-2');
+            const btnPrev3 = document.getElementById('btn-prev-3');
+            const btnSubmit = document.getElementById('btn-submit');
+
+            // Set default dates (Today and Tomorrow)
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(today.getDate() + 1);
+
+            const formatDateString = (d) => {
+                const year = d.getFullYear();
+                const month = String(d.getMonth() + 1).padStart(2, '0');
+                const date = String(d.getDate()).padStart(2, '0');
+                return `${year}-${month}-${date}`;
+            };
+
+            checkinInput.value = formatDateString(today);
+            checkoutInput.value = formatDateString(tomorrow);
+
+            // Set min dates to prevent past dates
+            checkinInput.min = formatDateString(today);
+            checkoutInput.min = formatDateString(tomorrow);
+
+            // Synchronize State Dates
+            const syncDates = () => {
+                state.checkin = checkinInput.value;
+                state.checkout = checkoutInput.value;
+
+                const cin = new Date(state.checkin);
+                const cout = new Date(state.checkout);
+
+                // Set checkout min date based on selected checkin
+                const nextDay = new Date(cin);
+                nextDay.setDate(cin.getDate() + 1);
+                checkoutInput.min = formatDateString(nextDay);
+
+                if (cout <= cin) {
+                    checkoutInput.value = formatDateString(nextDay);
+                    state.checkout = checkoutInput.value;
+                }
+
+                // Recalculate nights
+                const diffTime = Math.abs(new Date(state.checkout) - new Date(state.checkin));
+                state.nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                updateSummary();
+            };
+
+            checkinInput.addEventListener('change', syncDates);
+            checkoutInput.addEventListener('change', syncDates);
+
+            adultsSelect.addEventListener('change', (e) => {
+                state.adults = parseInt(e.target.value);
+                updateSummary();
+            });
+            childrenSelect.addEventListener('change', (e) => {
+                state.children = parseInt(e.target.value);
+                updateSummary();
+            });
+
+            // Room Selection Handlers
+            roomCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    roomCards.forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+
+                    state.selectedRoom = {
+                        id: card.getAttribute('data-room-id'),
+                        name: card.getAttribute('data-room-name'),
+                        pricePerNight: parseInt(card.getAttribute('data-price'))
+                    };
+
+                    updateSummary();
+                });
+            });
+
+            // Addon Selection Handlers
+            addonItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    item.classList.toggle('checked');
+                    const addonId = item.getAttribute('data-addon-id');
+                    const addonName = item.getAttribute('data-name');
+                    const addonPrice = parseInt(item.getAttribute('data-price'));
+
+                    if (item.classList.contains('checked')) {
+                        state.selectedAddons.push({ id: addonId, name: addonName, price: addonPrice });
+                    } else {
+                        state.selectedAddons = state.selectedAddons.filter(a => a.id !== addonId);
+                    }
+
+                    updateSummary();
+                });
+            });
+
+            // Terms Checkbox Handler
+            if (termsItem) {
+                termsItem.addEventListener('click', () => {
+                    termsItem.classList.toggle('checked');
+                    state.termsApproved = termsItem.classList.contains('checked');
+                });
+            }
+
+            // Read URL Params (e.g. ?room=pi)
+            const urlParams = new URLSearchParams(window.location.search);
+            const preselectedRoom = urlParams.get('room');
+            if (preselectedRoom) {
+                const targetCard = document.getElementById(`room-card-${preselectedRoom}`);
+                if (targetCard) {
+                    targetCard.click();
+                }
+            } else {
+                // Select first room by default
+                if (roomCards.length > 0) roomCards[0].click();
+            }
+
+            // Calculation and Summary display
+            const formatCurrency = (val) => {
+                return '₩ ' + val.toLocaleString('ko-KR');
+            };
+
+            const updateSummary = () => {
+                summaryCheckin.textContent = state.checkin || '-';
+                summaryCheckout.textContent = state.checkout || '-';
+                summaryNights.textContent = `${state.nights}박`;
+
+                if (state.selectedRoom) {
+                    summaryRoom.textContent = state.selectedRoom.name;
+                    const baseCost = state.selectedRoom.pricePerNight * state.nights;
+                    summaryRoomPrice.textContent = formatCurrency(baseCost);
+                } else {
+                    summaryRoom.textContent = '-';
+                    summaryRoomPrice.textContent = '₩ 0';
+                }
+
+                // Addons cost
+                const addonCost = state.selectedAddons.reduce((acc, curr) => acc + curr.price, 0);
+                summaryAddonsPrice.textContent = formatCurrency(addonCost);
+
+                // Calculations
+                const roomCostTotal = state.selectedRoom ? (state.selectedRoom.pricePerNight * state.nights) : 0;
+                const totalExcludingTax = roomCostTotal + addonCost;
+                const vat = Math.round(totalExcludingTax * 0.1);
+                const grandTotal = totalExcludingTax + vat;
+
+                summaryVat.textContent = formatCurrency(vat);
+                summaryTotal.textContent = formatCurrency(grandTotal);
+
+                // Return calculations for validation or success
+                return { grandTotal, vat, addonCost };
+            };
+
+            // Initialize State Dates & Run initial summary update
+            syncDates();
+
+            // STEP NAVIGATION ACTIONS
+            const switchStep = (stepNumber) => {
+                // stepNumber is 1-indexed (1, 2, 3, 4)
+                // Remove active from all tabs
+                stepTabs.forEach((tab, index) => {
+                    tab.classList.remove('active', 'completed');
+                    if (index + 1 < stepNumber) {
+                        tab.classList.add('completed');
+                    } else if (index + 1 === stepNumber) {
+                        tab.classList.add('active');
+                    }
+                });
+
+                // Display appropriate section
+                stepContents.forEach((content, index) => {
+                    if (index + 1 === stepNumber) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            };
+
+            // Step 1 -> Step 2
+            btnNext1.addEventListener('click', () => {
+                if (!state.checkin || !state.checkout || state.nights <= 0) {
+                    alert('올바른 투숙 날짜를 선택해주십시오.');
+                    return;
+                }
+                switchStep(2);
+            });
+
+            // Step 2 -> Step 3
+            btnNext2.addEventListener('click', () => {
+                if (!state.selectedRoom) {
+                    alert('투숙하실 객실을 선택해주십시오.');
+                    return;
+                }
+                switchStep(3);
+            });
+
+            // Step 2 <- Step 1
+            btnPrev2.addEventListener('click', () => {
+                switchStep(1);
+            });
+
+            // Step 3 <- Step 2
+            btnPrev3.addEventListener('click', () => {
+                switchStep(2);
+            });
+
+            // PG Option Selection Logic
+            const pgOptions = document.querySelectorAll('.pg-option');
+            let selectedPaymentMethod = 'card';
+            pgOptions.forEach(opt => {
+                opt.addEventListener('click', () => {
+                    pgOptions.forEach(o => o.classList.remove('selected'));
+                    opt.classList.add('selected');
+                    selectedPaymentMethod = opt.getAttribute('data-method');
+                });
+            });
+
+            // Submit Booking Request (Step 3 -> PG Modal Simulation -> Step 4)
+            btnSubmit.addEventListener('click', () => {
+                const nameInput = document.getElementById('user-name');
+                const phoneInput = document.getElementById('user-phone');
+                const emailInput = document.getElementById('user-email');
+
+                state.userName = nameInput.value.trim();
+                state.userPhone = phoneInput.value.trim();
+                state.userEmail = emailInput.value.trim();
+                state.userRequests = document.getElementById('user-requests').value.trim();
+
+                if (!state.userName) {
+                    alert('예약자 성함을 입력해주세요.');
+                    nameInput.focus();
+                    return;
+                }
+                if (!state.userPhone) {
+                    alert('연락처 번호를 입력해주세요.');
+                    phoneInput.focus();
+                    return;
+                }
+                if (!state.userEmail || !state.userEmail.includes('@')) {
+                    alert('올바른 이메일 주소를 입력해주세요.');
+                    emailInput.focus();
+                    return;
+                }
+                if (!state.termsApproved) {
+                    alert('예약 규정 및 보증금 위약금 약관에 동의해주셔야 진행이 가능합니다.');
+                    return;
+                }
+
+                // Show PG modal simulation first
+                const pgModal = document.getElementById('pg-modal');
+                const pgTitle = document.getElementById('pg-modal-title');
+                const pgDesc = document.getElementById('pg-modal-desc');
+
+                pgModal.classList.add('active');
+                pgTitle.textContent = "보안 결제 세션 연결 중";
+                pgDesc.innerHTML = "안전한 PG 결제를 위해 대기 중입니다.<br>잠시만 기다려 주십시오.";
+
+                const showSuccessTicket = () => {
+                    // Generate a booking ID
+                    const randomId = Math.floor(1000 + Math.random() * 9000);
+                    const dateCode = state.checkin.replace(/-/g, '');
+                    const ticketId = `PG-${dateCode}-${randomId}`;
+
+                    // Populate ticket details
+                    document.getElementById('ticket-id').textContent = ticketId;
+                    document.getElementById('ticket-user-name').textContent = state.userName;
+                    document.getElementById('ticket-room-name').textContent = state.selectedRoom.name;
+                    document.getElementById('ticket-stay-dates').textContent = `${state.checkin} ~ ${state.checkout} (${state.nights}박)`;
+                    document.getElementById('ticket-guests').textContent = `성인 ${state.adults}명 ${state.children > 0 ? `, 아동 ${state.children}명` : ''}`;
+
+                    // Addons details text
+                    if (state.selectedAddons.length > 0) {
+                        const addonNames = state.selectedAddons.map(a => a.name).join('<br>');
+                        document.getElementById('ticket-addons').innerHTML = addonNames;
+                    } else {
+                        document.getElementById('ticket-addons').textContent = '추가 옵션 없음';
+                    }
+
+                    // Pricing calculation summary for ticket
+                    const totals = updateSummary();
+                    const totalExcludingTax = (state.selectedRoom.pricePerNight * state.nights) + state.selectedAddons.reduce((acc, curr) => acc + curr.price, 0);
+                    const vat = Math.round(totalExcludingTax * 0.1);
+                    const grandTotal = totalExcludingTax + vat;
+                    document.getElementById('ticket-total-price').textContent = formatCurrency(grandTotal);
+
+                    // UI adjustments (Hide wizard forms & costs summary pane, show completed ticket pane)
+                    document.getElementById('booking-left-panel').style.display = 'none';
+                    document.getElementById('booking-right-panel').style.display = 'none';
+
+                    const bookingWrapper = document.getElementById('booking-wrapper');
+                    bookingWrapper.style.gridTemplateColumns = '1fr'; // Full width for ticket
+
+                    const ticketPanel = document.getElementById('booking-ticket-panel');
+                    ticketPanel.style.display = 'block';
+
+                    switchStep(4);
+                };
+
+                // PG phase transitions
+                setTimeout(() => {
+                    pgTitle.textContent = "카드사 본인인증 진행 중";
+                    pgDesc.innerHTML = "선택하신 결제 수단으로 카드사 인증을 진행하고 있습니다.<br>인증 완료 시까지 브라우저를 닫지 마십시오.";
+
+                    setTimeout(() => {
+                        pgTitle.textContent = "결제 승인 처리 중";
+                        pgDesc.innerHTML = "카드사 승인을 받아 거래를 완료하고 있습니다.<br>잠시만 기다려 주십시오.";
+
+                        setTimeout(() => {
+                            pgModal.classList.remove('active');
+                            showSuccessTicket();
+                        }, 1500);
+                    }, 1500);
+                }, 1500);
+            });
+        });
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">THE GRAND PRIVATE HOUSE <span>丕家</span></div>
+                <p class="footer-desc">바람이 머무는 곳, 제주의 고요 속에서 오직 당신만을 위한 완전한 안식을 선사합니다.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="rooms.html">객실소개</a></li>
+                    <li><a href="amenities.html">부대시설</a></li>
+                    <li><a href="booking.html">실시간예약</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>CONTACT</h4>
+                <p>주소: 제주특별자치도 서귀포시 중문 88</p>
+                <p>전화: 064-000-0000</p>
+                <p>이메일: reservation@piga.co.kr</p>
+            </div>
+
+            <div class="footer-sns">
+                <h4>FOLLOW US</h4>
+                <div class="sns-icons">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang-key="footer_copyright">&copy; 2026 丕家. THE GRAND PRIVATE HOUSE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="signup-close">&times;</button>
+            <h3 data-lang-key="modal_signup_title">丕家 멤버십 가입</h3>
+            <p class="modal-subtitle" data-lang-key="modal_signup_subtitle">비대면 명품 서비스와 프라이빗 특권을 소유하세요.</p>
+            <form class="modal-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name" data-lang-key="form_name">이름</label>
+                    <input type="text" id="signup-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email" data-lang-key="form_email">이메일 주소</label>
+                    <input type="email" id="signup-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone" data-lang-key="form_phone">휴대폰 번호</label>
+                    <input type="tel" id="signup-phone" class="form-control" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password" data-lang-key="form_password">비밀번호</label>
+                    <input type="password" id="signup-password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password-confirm" data-lang-key="form_password_confirm">비밀번호 확인</label>
+                    <input type="password" id="signup-password-confirm" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-fill"
+                    style="width: 100%; border: 1px solid var(--accent-gold); margin-top: 10px;"
+                    data-lang-key="btn_submit_signup">가입하기</button>
+            </form>
+            <p class="modal-footer-text" data-lang-key="modal_signup_footer">이미 계정이 있으신가요? <a href="#">로그인</a></p>
+        </div>
+    </div>
+
+    <!-- PG Payment Modal Simulation -->
+    <div class="modal" id="pg-modal">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <button class="modal-close" id="pg-close" style="display: none;">&times;</button>
+            <div class="pg-loader" id="pg-loader-securing">
+                <div class="spinner"></div>
+                <h3 style="font-family: var(--font-serif); font-size: 1.3rem;" id="pg-modal-title">보안 결제 세션 연결 중</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px; line-height: 1.6;"
+                    id="pg-modal-desc">안전한 PG 결제를 위해 대기 중입니다.<br>잠시만 기다려 주십시오.</p>
+                <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 20px;">Securing
+                    your connection...</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="丕家 (THE GRAND PRIVATE HOUSE) -  
+    시크릿 시스템을 운영하는 제주 최고의 프라이빗 리조트. 
+    완전한 안식을 경험하십시오.">
+    <meta name="keywords" content="丕家, 피가, 비가, THE GRAND PRIVATE HOUSE, 제주 독채 펜션, 제주 풀빌라, 프라이빗 리조트, 제주 감성 숙소">
+    <title>丕家 | THE GRAND PRIVATE HOUSE | 쉼, 본질을 마주하다</title>
+    <!-- Icon Font Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <script src="main.js" defer></script>
+    <script src="lang-switch.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Discount Event Floating Card -->
+    <div class="promo-card" id="promo-banner" style="display: none;">
+        <div class="promo-card-badge">PROMOTION</div>
+        <div class="promo-card-body">
+            <div class="promo-card-icon">
+                <i class="fa-solid fa-gift" style="color: var(--accent-gold);"></i>
+            </div>
+            <div class="promo-card-text">
+                <span data-lang-key="banner_text">그랜드 오프닝 프로모션: 6월 예약 시 20% 특별 할인</span>
+            </div>
+        </div>
+        <button class="promo-card-close" id="close-banner-btn" aria-label="닫기"><i
+                class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="IMG/logo.jpg" alt="丕家 Logo" class="logo-img">
+                THE GRAND PRIVATE HOUSE <span>丕家</span>
+            </a>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html" class="active" data-lang-key="nav_home">홈</a></li>
+                <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                <li><a href="gallery.html" data-lang-key="nav_gallery">갤러리</a></li>
+                <li><a href="contact.html" data-lang-key="nav_contact">예약문의</a></li>
+                <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+            </ul>
+            <div class="nav-widgets">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <span>|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="btn-signup" id="signup-trigger" data-lang-key="btn_signup">회원가입</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <section class="hero" id="hero-section">
+        <div class="hero-text">
+            <h1 data-lang-key="hero_title">Rest<br><span class="formula">Private + Secret + Hidden</span></h1>
+            <p data-lang-key="hero_desc">丕家는 오직 당신만이 존재하는 완전한 안식처를 수치로 증명합니다.</p>
+            <a href="booking.html" class="btn btn-fill" id="btn-hero-booking" data-lang-key="hero_btn">예약하기</a>
+        </div>
+    </section>
+
+    <!-- Jeju Weather & Time Widget Bar -->
+    <div style="background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-light); padding: 15px 8%;">
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.85rem; color: var(--text-secondary); letter-spacing: 0.05em;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-location-dot" style="color: var(--accent-gold);"></i>
+                <span>Jeju Island, Korea</span>
+                <span id="jeju-date"
+                    style="margin-left: 10px; border-left: 1px solid var(--border-light); padding-left: 10px;"></span>
+                <span id="jeju-time" style="font-weight: 500; color: var(--accent-gold);"></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-cloud-sun" style="color: var(--accent-gold);"></i>
+                <span id="weather-status" data-lang-key="weather_title">제주 丕家</span>
+                <span id="weather-temp" style="font-weight: 500; color: var(--text-primary);">22.4°C</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="intro reveal">
+        <span class="section-tag" data-lang-key="intro_tag">About Cheongpung</span>
+        <h2 data-lang-key="intro_title">丕家에서의 하룻밤</h2>
+        <p data-lang-key="intro_desc">시선이 머물지 않는 곳에서의 쉼,
+            바람의 소리와 돌담의 온기가 스며드는 곳,
+            비대면 언택트 시스템으로 온전한 사색과 휴식을 누리는 독립된 공간</p>
+    </section>
+
+    <!-- Stats Section ( 수치로 증명하는 쉼 ) -->
+    <section class="stats-section reveal">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" data-lang-key="stat1_num">100%</span>
+                <span class="stat-title" data-lang-key="stat1_title">비대면 안심 체크인</span>
+                <span class="stat-desc" data-lang-key="stat1_desc">입실부터 퇴실까지 완벽한 동선 분리</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-lang-key="stat2_num">0.0 dB</span>
+                <span class="stat-title" data-lang-key="stat2_title">침묵의 소리</span>
+                <span class="stat-desc" data-lang-key="stat2_desc">소음 차단을 극대화한 독채 단지 설계</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-lang-key="stat3_num">4 Units</span>
+                <span class="stat-title" data-lang-key="stat3_title">소수 정예 프라이빗</span>
+                <span class="stat-desc" data-lang-key="stat3_desc">오직 하루 4팀만 누릴 수 있는 특권</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-lang-key="stat4_num">300 Yrs</span>
+                <span class="stat-title" data-lang-key="stat4_title">시간의 전통</span>
+                <span class="stat-desc" data-lang-key="stat4_desc">제주 가옥 고유의 돌담과 처마 복원</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Preview -->
+    <section style="padding: 100px 8% 0 8%; background-color: var(--bg-primary);">
+        <div class="section-title reveal" style="text-align: center; margin-bottom: 50px;">
+            <span class="section-tag">Our Space</span>
+            <h2>쉼의 영역</h2>
+        </div>
+    </section>
+
+    <div class="grid-container">
+        <!-- Room Preview Card -->
+        <div class="preview-card reveal-left" id="card-room-pi">
+            <div class="card-img-wrapper">
+                <img src="IMG/room_pi.png" alt="丕 Suite Preview">
+            </div>
+            <div class="card-info">
+                <h3>丕 Suite <span
+                        style="font-size: 0.85rem; color: var(--accent-gold); display: block; margin-top: 5px; font-weight: 300;">가장
+                        웅장한 침묵의 객실</span></h3>
+                <p>제주 돌담 정원과 사계절 프라이빗 인피니티 풀이 펼쳐지는 시그니처 펜트하우스형 독채입니다.</p>
+                <div class="card-footer">
+                    <span class="card-price">₩980,000 ~</span>
+                    <a href="rooms.html" class="card-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Preview Card 2 -->
+        <div class="preview-card reveal-right" id="card-room-jung">
+            <div class="card-img-wrapper">
+                <img src="IMG/room_jung.png" alt="靜 Suite Preview">
+            </div>
+            <div class="card-info">
+                <h3>靜 Suite <span
+                        style="font-size: 0.85rem; color: var(--accent-gold); display: block; margin-top: 5px; font-weight: 300;">사색과
+                        동양미의 객실</span></h3>
+                <p>전통 한옥의 고즈넉함과 현대적 미학이 융합된 공간으로,
+                    대나무 정원을 바라보는 프라이빗 자쿠지가 포함되어 있습니다.</p>
+                <div class="card-footer">
+                    <span class="card-price">₩750,000 ~</span>
+                    <a href="rooms.html" class="card-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Section -->
+    <section class="reveal"
+        style="padding: 100px 8%; background-color: var(--bg-secondary); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; align-items: center;"
+            class="location-grid-responsive">
+            <div style="display: flex; flex-direction: column;" class="reveal-left">
+                <span class="section-tag">Location</span>
+                <h2
+                    style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 25px;">
+                    오시는 길</h2>
+                <p
+                    style="font-size: 1rem; font-weight: 300; line-height: 2; color: var(--text-secondary); margin-bottom: 35px;">
+                    바람과 은빛 억새가 흩날리는 제주의 조용한 기슭. <br>
+                    丕家는 제주의 대자연 한가운데 숨겨진 프라이빗 해안가 숲속에 위치해 있습니다.
+                    타인의 시선을 완벽히 차단하고 웅장한 침묵을 완성하기 위해,
+                    상세 주소 및 비밀번호가 결합된 비대면
+                    진입용 핀코드는 투숙 당일 오전 개별 메시지로만 시크릿 발송됩니다.
+                </p>
+                <div
+                    style="border-top: 1px solid var(--border-light); padding-top: 25px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    <div>
+                        <h4 style="font-size: 0.9rem; color: var(--accent-gold); font-weight: 400; margin-bottom: 8px;">
+                            리조트 대표 주소</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">제주특별자치도 서귀포시 중문 88
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.9rem; color: var(--accent-gold); font-weight: 400; margin-bottom: 8px;">
+                            제주 국제공항 연결</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">차량으로 약 45분 소요 (의전 픽업
+                            서비스 신청 가능)</p>
+                    </div>
+                </div>
+            </div>
+            <div style="border: 1px solid var(--border-light); overflow: hidden; aspect-ratio: 16/11;"
+                class="reveal-right">
+                <img src="IMG/jeju_map.png" alt="Jeju Island Map - Piga Location"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourist Attractions Section -->
+    <section class="map-section reveal">
+        <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+            <span class="section-tag" data-lang-key="map_tag">Location Attractions</span>
+            <h2 data-lang-key="map_title"
+                style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; letter-spacing: 0.15em;">주변
+                관광지 추천</h2>
+            <p data-lang-key="map_desc"
+                style="font-size: 0.95rem; font-weight: 300; color: var(--text-secondary); max-width: 600px; margin: 15px auto 0 auto; line-height: 1.8;">
+                丕家 주변의 제주 서귀포 명소들을 소개합니다. 고요함 속에서의 탐험을 즐겨보세요.
+            </p>
+        </div>
+
+        <div class="tourist-grid">
+            <!-- Attraction 1 -->
+            <div class="tourist-card">
+                <div class="tourist-img-wrapper">
+                    <img src="IMG/hero_villa.png" alt="Cheonjeyeon Falls">
+                </div>
+                <div class="tourist-info">
+                    <h4 data-lang-key="attraction1_name">천제연 폭포</h4>
+                    <span class="tourist-distance" data-lang-key="attraction1_distance">차량 8분 (3.2km)</span>
+                    <p class="tourist-desc" data-lang-key="attraction1_desc">옥황상제를 모시는 칠선녀가 목욕을 하고 간다는 전설이 깃든 3단 폭포입니다.
+                    </p>
+                    <a href="https://map.kakao.com/?q=%EC%B2%9C%EC%A0%9C%EC%97%B0%ED%8F%AD%ED%8F%AC" target="_blank"
+                        class="tourist-map-link"><i class="fa-solid fa-map-location-dot"></i> <span
+                            data-lang-key="btn_view_map">지도 보기</span></a>
+                </div>
+            </div>
+
+            <!-- Attraction 2 -->
+            <div class="tourist-card">
+                <div class="tourist-img-wrapper">
+                    <img src="IMG/hero_villas_private.png" alt="Jungmun Beach">
+                </div>
+                <div class="tourist-info">
+                    <h4 data-lang-key="attraction2_name">중문 색달해변</h4>
+                    <span class="tourist-distance" data-lang-key="attraction2_distance">차량 10분 (4.1km)</span>
+                    <p class="tourist-desc" data-lang-key="attraction2_desc">활처럼 굽은 백사장과 이국적인 해안 절벽이 어우러진 서핑의 성지입니다.</p>
+                    <a href="https://map.kakao.com/?q=%EC%A4%91%EB%AC%B8%EC%83%89%EB%8B%AC%ED%95%B4%EB%B3%80"
+                        target="_blank" class="tourist-map-link"><i class="fa-solid fa-map-location-dot"></i> <span
+                            data-lang-key="btn_view_map">지도 보기</span></a>
+                </div>
+            </div>
+
+            <!-- Attraction 3 -->
+            <div class="tourist-card">
+                <div class="tourist-img-wrapper">
+                    <img src="IMG/room_jung.png" alt="Jusangjeolli">
+                </div>
+                <div class="tourist-info">
+                    <h4 data-lang-key="attraction3_name">주상절리대</h4>
+                    <span class="tourist-distance" data-lang-key="attraction3_distance">차량 12분 (5.3km)</span>
+                    <p class="tourist-desc" data-lang-key="attraction3_desc">자연의 위대함이 돋보이는 육각형 기둥 모양의 거대한 돌기둥 절벽입니다.</p>
+                    <a href="https://map.kakao.com/?q=%EB%8C%80%ED%8F%AC%EC%A3%BC%EC%83%81%EC%A0%88%EB%A6%AC%EB%8C%80"
+                        target="_blank" class="tourist-map-link"><i class="fa-solid fa-map-location-dot"></i> <span
+                            data-lang-key="btn_view_map">지도 보기</span></a>
+                </div>
+            </div>
+
+            <!-- Attraction 4 -->
+            <div class="tourist-card">
+                <div class="tourist-img-wrapper">
+                    <img src="IMG/room_pi.png" alt="Camellia Hill">
+                </div>
+                <div class="tourist-info">
+                    <h4 data-lang-key="attraction4_name">카멜리아 힐</h4>
+                    <span class="tourist-distance" data-lang-key="attraction4_distance">차량 18분 (9.5km)</span>
+                    <p class="tourist-desc" data-lang-key="attraction4_desc">동양 최대 규모의 동백 수목원으로 사계절 꽃 향기가 머무는 정원입니다.</p>
+                    <a href="https://map.kakao.com/?q=%EC%B9%B4%EB%A9%9C%EB%A6%AC%EC%95%84%ED%9E%90" target="_blank"
+                        class="tourist-map-link"><i class="fa-solid fa-map-location-dot"></i> <span
+                            data-lang-key="btn_view_map">지도 보기</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action -->
+    <section class="reveal"
+        style="padding: 100px 8%; text-align: center; background-image: linear-gradient(to top, rgba(11, 12, 14, 0.95), rgba(11, 12, 14, 0.7)), url('IMG/hero_villa.png'); background-size: cover; background-position: center; border-top: 1px solid var(--border-gold);">
+        <h2 data-lang-key="cta_title"
+            style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 25px;">
+            완벽한 침묵 속으로의 초대</h2>
+        <p data-lang-key="cta_desc"
+            style="font-size: 1.05rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 45px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 2;">
+            당신이 머무는 시간 동안 丕家의 모든 문은 오직 당신만을 향해 열립니다.
+            외부 세계와 단절된 궁극의 안식을 만나보세요.</p>
+        <a href="booking.html" class="btn btn-fill" id="btn-bottom-booking" data-lang-key="cta_btn">실시간 예약하기</a>
+    </section>
+
+    <!-- SNS Instagram Feed Section -->
+    <section class="sns-section reveal">
+        <div class="section-title" style="text-align: center; margin-bottom: 30px;">
+            <span class="section-tag" data-lang-key="sns_tag">SNS Integration</span>
+            <h2 data-lang-key="sns_title"
+                style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; letter-spacing: 0.15em;">소셜
+                미디어 피드</h2>
+            <p data-lang-key="sns_desc" style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">
+                인스타그램에서 丕家의 소식을 가장 먼저 접해보세요. #비가리조트 #제주프라이빗</p>
+        </div>
+
+        <div class="sns-grid">
+            <div class="sns-item">
+                <img src="IMG/hero_villas_private.png" alt="Instagram Post">
+                <div class="sns-overlay">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@piga_resort</span>
+                </div>
+            </div>
+            <div class="sns-item">
+                <img src="IMG/room_pi.png" alt="Instagram Post">
+                <div class="sns-overlay">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@piga_resort</span>
+                </div>
+            </div>
+            <div class="sns-item">
+                <img src="IMG/room_jung.png" alt="Instagram Post">
+                <div class="sns-overlay">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@piga_resort</span>
+                </div>
+            </div>
+            <div class="sns-item">
+                <img src="IMG/amenity_pool.png" alt="Instagram Post">
+                <div class="sns-overlay">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@piga_resort</span>
+                </div>
+            </div>
+            <div class="sns-item">
+                <img src="IMG/amenity_tea.png" alt="Instagram Post">
+                <div class="sns-overlay">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@piga_resort</span>
+                </div>
+            </div>
+            <div class="sns-item">
+                <img src="IMG/hero_villa.png" alt="Instagram Post">
+                <div class="sns-overlay">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@piga_resort</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">THE GRAND PRIVATE HOUSE <span>丕家</span></div>
+                <p class="footer-desc" data-lang-key="footer_desc">바람이 머무는 곳, 제주의 고요 속에서 오직 당신만을 위한 완전한 안식을 선사합니다.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                    <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                    <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                    <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>CONTACT</h4>
+                <p>주소: 제주특별자치도 서귀포시 중문 88</p>
+                <p>전화: 064-000-0000</p>
+                <p>이메일: reservation@piga.co.kr</p>
+            </div>
+
+            <div class="footer-sns">
+                <h4>FOLLOW US</h4>
+                <div class="sns-icons">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang-key="footer_copyright">&copy; 2026 丕家. THE GRAND PRIVATE HOUSE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="signup-close">&times;</button>
+            <h3 data-lang-key="modal_signup_title">丕家 멤버십 가입</h3>
+            <p class="modal-subtitle" data-lang-key="modal_signup_subtitle">비대면 명품 서비스와 프라이빗 특권을 소유하세요.</p>
+            <form class="modal-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name" data-lang-key="form_name">이름</label>
+                    <input type="text" id="signup-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email" data-lang-key="form_email">이메일 주소</label>
+                    <input type="email" id="signup-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone" data-lang-key="form_phone">휴대폰 번호</label>
+                    <input type="tel" id="signup-phone" class="form-control" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password" data-lang-key="form_password">비밀번호</label>
+                    <input type="password" id="signup-password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password-confirm" data-lang-key="form_password_confirm">비밀번호 확인</label>
+                    <input type="password" id="signup-password-confirm" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-fill"
+                    style="width: 100%; border: 1px solid var(--accent-gold); margin-top: 10px;"
+                    data-lang-key="btn_submit_signup">가입하기</button>
+            </form>
+            <p class="modal-footer-text" data-lang-key="modal_signup_footer">이미 계정이 있으신가요? <a href="#">로그인</a></p>
+        </div>
+    </div>
+
+</body>
+
+</html>
