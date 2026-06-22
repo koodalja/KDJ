@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="丕家(Biga)의 단체 예약, 장소 대여 및 제휴 관련 개별 1:1 상담 예약 문의 폼입니다.">
+    <title>예약문의 | 丕家 | THE GRAND PRIVATE HOUSE</title>
+    <!-- Icon Font Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <script src="main.js" defer></script>
+    <script src="lang-switch.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="IMG/logo.jpg" alt="丕家 Logo" class="logo-img">
+                THE GRAND PRIVATE HOUSE <span>丕家</span>
+            </a>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                <li><a href="gallery.html" data-lang-key="nav_gallery">갤러리</a></li>
+                <li><a href="contact.html" class="active" data-lang-key="nav_contact">예약문의</a></li>
+                <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+            </ul>
+            <div class="nav-widgets">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <span>|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="btn-signup" id="signup-trigger" data-lang-key="btn_signup">회원가입</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Page Header (Contact Hero) -->
+    <section class="page-header"
+        style="background-image: linear-gradient(to bottom, rgba(11, 12, 14, 0.4), rgba(11, 12, 14, 0.95)), url('IMG/hero_villa.png');">
+        <div class="page-header-content">
+            <span class="section-tag" data-lang-key="nav_contact">Inquiry</span>
+            <h1 data-lang-key="nav_contact">예약문의</h1>
+            <p>丕家의 프라이빗 단체 예약, 미디어 대관 및 맞춤형 제휴를 1:1 전담 안내해 드립니다.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <div class="contact-grid">
+
+            <!-- Left Info Panel -->
+            <div class="contact-info-panel reveal">
+                <h2>1:1 맞춤형 컨시어지</h2>
+                <p>
+                    丕家는 오직 한 그룹만을 위한 전체 단지 렌탈(4개 독채 일괄 예약), 광고/영화 촬영 등 전문 미디어 대관, 그리고 웰니스 프로그램 제휴 제안을 상시 접수하고
+                    있습니다.<br><br>
+                    문의 내용을 상세하게 남겨주시면, 담당 럭셔리 컨시어지가 영업일 기준 24시간 이내에 개별 연락을 드려 안내해 드리겠습니다.
+                </p>
+
+                <div class="contact-details-list">
+                    <div class="contact-detail-row">
+                        <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-detail-text">
+                            <h4>전담 컨시어지 전화</h4>
+                            <p>064-000-0000 (상담 시간: 10:00 ~ 18:00)</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail-row">
+                        <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-detail-text">
+                            <h4>공식 비즈니스 메일</h4>
+                            <p>concierge@piga.co.kr</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail-row">
+                        <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-detail-text">
+                            <h4>리조트 주소</h4>
+                            <p>제주특별자치도 서귀포시 중문 88</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Panel -->
+            <div class="booking-panel reveal">
+                <h2>문의 정보 작성</h2>
+                <form class="modal-form" id="contact-inquiry-form">
+                    <div class="booking-form-grid">
+                        <div class="form-group">
+                            <label for="contact-name">성함/기업명 (Name)</label>
+                            <input type="text" id="contact-name" class="form-control" placeholder="이름 또는 회사명을 입력하세요."
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">연락처 (Phone Number)</label>
+                            <input type="tel" id="contact-phone" class="form-control" placeholder="010-0000-0000"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="booking-form-grid">
+                        <div class="form-group">
+                            <label for="contact-email">이메일 주소 (Email Address)</label>
+                            <input type="email" id="contact-email" class="form-control" placeholder="name@example.com"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-type">문의 유형 (Inquiry Type)</label>
+                            <select id="contact-type" class="form-control">
+                                <option value="group">객실 단체 예약 (4채 전체 대관)</option>
+                                <option value="rental">촬영 및 미디어 장소 대관</option>
+                                <option value="alliance">브랜드 제휴 및 기타 비즈니스</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label for="contact-message">문의 내용 (Message)</label>
+                        <textarea id="contact-message" class="form-control" rows="6"
+                            placeholder="세부적인 문의 일정 및 필요 사항을 기재해 주십시오." style="resize: none;" required></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 30px;">
+                        <div class="addon-item" id="contact-consent-item" style="padding: 12px 20px;">
+                            <div class="addon-left">
+                                <div class="addon-checkbox" id="contact-consent-checkbox"></div>
+                                <div class="addon-label" style="font-size: 0.85rem;">[필수] 개인정보 수집 및 이용 동의 (1:1 상담 목적)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-fill"
+                        style="width: 100%; border: 1px solid var(--accent-gold);">문의 접수하기 <i
+                            class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">THE GRAND PRIVATE HOUSE <span>丕家</span></div>
+                <p class="footer-desc" data-lang-key="footer_desc">바람이 머무는 곳, 제주의 고요 속에서 오직 당신만을 위한 완전한 안식을 선사합니다.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                    <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                    <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                    <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>CONTACT</h4>
+                <p>주소: 제주특별자치도 서귀포시 중문 88</p>
+                <p>전화: 064-000-0000</p>
+                <p>이메일: reservation@piga.co.kr</p>
+            </div>
+
+            <div class="footer-sns">
+                <h4>FOLLOW US</h4>
+                <div class="sns-icons">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang-key="footer_copyright">&copy; 2026 丕家. THE GRAND PRIVATE HOUSE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="signup-close">&times;</button>
+            <h3 data-lang-key="modal_signup_title">丕家 멤버십 가입</h3>
+            <p class="modal-subtitle" data-lang-key="modal_signup_subtitle">비대면 명품 서비스와 프라이빗 특권을 소유하세요.</p>
+            <form class="modal-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name" data-lang-key="form_name">이름</label>
+                    <input type="text" id="signup-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email" data-lang-key="form_email">이메일 주소</label>
+                    <input type="email" id="signup-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone" data-lang-key="form_phone">휴대폰 번호</label>
+                    <input type="tel" id="signup-phone" class="form-control" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password" data-lang-key="form_password">비밀번호</label>
+                    <input type="password" id="signup-password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password-confirm" data-lang-key="form_password_confirm">비밀번호 확인</label>
+                    <input type="password" id="signup-password-confirm" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-fill"
+                    style="width: 100%; border: 1px solid var(--accent-gold); margin-top: 10px;"
+                    data-lang-key="btn_submit_signup">가입하기</button>
+            </form>
+            <p class="modal-footer-text" data-lang-key="modal_signup_footer">이미 계정이 있으신가요? <a href="#">로그인</a></p>
+        </div>
+    </div>
+
+    <!-- Contact Form Validation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Consent checkbox toggle
+            const consentItem = document.getElementById('contact-consent-item');
+            const consentCheckbox = document.getElementById('contact-consent-checkbox');
+            let isConsented = false;
+
+            if (consentItem) {
+                consentItem.addEventListener('click', () => {
+                    consentItem.classList.toggle('checked');
+                    isConsented = consentItem.classList.contains('checked');
+                });
+            }
+
+            // Form Submit validation
+            const contactForm = document.getElementById('contact-inquiry-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('contact-name').value.trim();
+                    const phone = document.getElementById('contact-phone').value.trim();
+                    const email = document.getElementById('contact-email').value.trim();
+                    const message = document.getElementById('contact-message').value.trim();
+
+                    if (!name) {
+                        alert("성함/기업명을 입력해주세요.");
+                        return;
+                    }
+                    if (!phone) {
+                        alert("연락처를 입력해주세요.");
+                        return;
+                    }
+                    if (!email || !email.includes('@')) {
+                        alert("올바른 이메일 주소를 입력해주세요.");
+                        return;
+                    }
+                    if (!message) {
+                        alert("문의 내용을 작성해주세요.");
+                        return;
+                    }
+                    if (!isConsented) {
+                        alert("개인정보 수집 및 이용에 동의하셔야 접수가 가능합니다.");
+                        return;
+                    }
+
+                    // Success logic
+                    alert(localStorage.getItem('piga_lang') === 'en' ?
+                        `Thank you, ${name}! Your inquiry has been successfully submitted. We will contact you soon.` :
+                        `감사합니다, ${name}님! 문의 예약 접수가 완료되었습니다. 담당자가 신속히 연락해 드리겠습니다.`
+                    );
+
+                    contactForm.reset();
+                    consentItem.classList.remove('checked');
+                    isConsented = false;
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
