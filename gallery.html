@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="丕家의 전경과 고요한 순간들을 담은 프리미엄 고해상도 이미지 갤러리입니다.">
+    <title>갤러리 | 丕家 | THE GRAND PRIVATE HOUSE</title>
+    <!-- Icon Font Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <script src="main.js" defer></script>
+    <script src="lang-switch.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="IMG/logo.jpg" alt="丕家 Logo" class="logo-img">
+                THE GRAND PRIVATE HOUSE <span>丕家</span>
+            </a>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                <li><a href="gallery.html" class="active" data-lang-key="nav_gallery">갤러리</a></li>
+                <li><a href="contact.html" data-lang-key="nav_contact">예약문의</a></li>
+                <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+            </ul>
+            <div class="nav-widgets">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <span>|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="btn-signup" id="signup-trigger" data-lang-key="btn_signup">회원가입</button>
+            </div>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="메뉴 토글">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Page Header (Gallery Hero) -->
+    <section class="page-header"
+        style="background-image: linear-gradient(to bottom, rgba(11, 12, 14, 0.4), rgba(11, 12, 14, 0.95)), url('IMG/hero_villas_private.png');">
+        <div class="page-header-content">
+            <span class="section-tag" data-lang-key="nav_gallery">Gallery</span>
+            <h1 data-lang-key="nav_gallery">갤러리</h1>
+            <p>丕家의 고요한 순간들과 수려한 제주의 사계를 감상해보십시오.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+
+        <!-- Filter Tabs -->
+        <div class="gallery-filter-bar">
+            <button class="gallery-filter-btn active" data-filter="all">전체</button>
+            <button class="gallery-filter-btn" data-filter="rooms">객실 (Rooms)</button>
+            <button class="gallery-filter-btn" data-filter="amenities">부대시설 (Amenities)</button>
+            <button class="gallery-filter-btn" data-filter="nature">대자연 (Nature)</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            <!-- Item 1 -->
+            <div class="gallery-item reveal" data-category="rooms">
+                <div class="gallery-img-box">
+                    <img src="IMG/room_pi.png" alt="丕 Suite Private Pool">
+                </div>
+                <div class="gallery-item-info">
+                    <span class="gallery-item-tag">Rooms</span>
+                    <h4 class="gallery-item-title">丕 Suite - 프라이빗 온수 인피니티 풀</h4>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item reveal" data-category="rooms">
+                <div class="gallery-img-box">
+                    <img src="IMG/room_jung.png" alt="靜 Suite Private Jacuzzi">
+                </div>
+                <div class="gallery-item-info">
+                    <span class="gallery-item-tag">Rooms</span>
+                    <h4 class="gallery-item-title">靜 Suite - 사색을 부르는 대나무 정원 자쿠지</h4>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item reveal" data-category="amenities">
+                <div class="gallery-img-box">
+                    <img src="IMG/amenity_pool.png" alt="Piga Infinity Pool">
+                </div>
+                <div class="gallery-item-info">
+                    <span class="gallery-item-tag">Amenities</span>
+                    <h4 class="gallery-item-title">사계절 온수 풀 - 숲속에 열린 물의 정원</h4>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-item reveal" data-category="amenities">
+                <div class="gallery-img-box">
+                    <img src="IMG/amenity_tea.png" alt="Cheongpung Traditional Tea House">
+                </div>
+                <div class="gallery-item-info">
+                    <span class="gallery-item-tag">Amenities</span>
+                    <h4 class="gallery-item-title">청풍 다실 - 제주의 맛과 차 향기가 머무는 곳</h4>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item reveal" data-category="nature">
+                <div class="gallery-img-box">
+                    <img src="IMG/hero_villas_private.png" alt="Piga Forest Path">
+                </div>
+                <div class="gallery-item-info">
+                    <span class="gallery-item-tag">Nature</span>
+                    <h4 class="gallery-item-title">시크릿 숲길 - 은밀한 자연이 숨 쉬는 해안 절벽 산책로</h4>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item reveal" data-category="nature">
+                <div class="gallery-img-box">
+                    <img src="IMG/hero_villa.png" alt="Piga Silver Grass Landscape">
+                </div>
+                <div class="gallery-item-info">
+                    <span class="gallery-item-tag">Nature</span>
+                    <h4 class="gallery-item-title">억새 언덕 - 바람의 숨결이 스쳐가는 제주 기슭</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal popup -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content-wrapper">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <img src="" alt="Zoomed View" id="lightbox-img">
+        </div>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <div class="lightbox-category" id="lightbox-category"></div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">THE GRAND PRIVATE HOUSE <span>丕家</span></div>
+                <p class="footer-desc" data-lang-key="footer_desc">바람이 머무는 곳, 제주의 고요 속에서 오직 당신만을 위한 완전한 안식을 선사합니다.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="index.html" data-lang-key="nav_home">홈</a></li>
+                    <li><a href="rooms.html" data-lang-key="nav_rooms">객실소개</a></li>
+                    <li><a href="amenities.html" data-lang-key="nav_amenities">부대시설</a></li>
+                    <li><a href="booking.html" data-lang-key="nav_booking">실시간예약</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>CONTACT</h4>
+                <p>주소: 제주특별자치도 서귀포시 중문 88</p>
+                <p>전화: 064-000-0000</p>
+                <p>이메일: reservation@piga.co.kr</p>
+            </div>
+
+            <div class="footer-sns">
+                <h4>FOLLOW US</h4>
+                <div class="sns-icons">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang-key="footer_copyright">&copy; 2026 丕家. THE GRAND PRIVATE HOUSE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="signup-close">&times;</button>
+            <h3 data-lang-key="modal_signup_title">丕家 멤버십 가입</h3>
+            <p class="modal-subtitle" data-lang-key="modal_signup_subtitle">비대면 명품 서비스와 프라이빗 특권을 소유하세요.</p>
+            <form class="modal-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name" data-lang-key="form_name">이름</label>
+                    <input type="text" id="signup-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email" data-lang-key="form_email">이메일 주소</label>
+                    <input type="email" id="signup-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone" data-lang-key="form_phone">휴대폰 번호</label>
+                    <input type="tel" id="signup-phone" class="form-control" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password" data-lang-key="form_password">비밀번호</label>
+                    <input type="password" id="signup-password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password-confirm" data-lang-key="form_password_confirm">비밀번호 확인</label>
+                    <input type="password" id="signup-password-confirm" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-fill"
+                    style="width: 100%; border: 1px solid var(--accent-gold); margin-top: 10px;"
+                    data-lang-key="btn_submit_signup">가입하기</button>
+            </form>
+            <p class="modal-footer-text" data-lang-key="modal_signup_footer">이미 계정이 있으신가요? <a href="#">로그인</a></p>
+        </div>
+    </div>
+
+    <!-- Gallery Filtering and Lightbox JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Filter Logic
+            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (filterValue === 'all' || itemCategory === filterValue) {
+                            item.style.display = 'block';
+                            // Fade transition
+                            item.style.opacity = '0';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Lightbox Logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxCategory = document.getElementById('lightbox-category');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    const title = item.querySelector('.gallery-item-title').textContent;
+                    const tag = item.querySelector('.gallery-item-tag').textContent;
+
+                    lightboxImg.src = img.src;
+                    lightboxCaption.textContent = title;
+                    lightboxCategory.textContent = tag;
+
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
